@@ -22,10 +22,11 @@ function BebidaDetalle() {
     fetch(`${import.meta.env.VITE_API_URL}/bebidas`)
       .then((res) => res.json())
       .then((data) => {
-        const filtradas = data.filter(
-          (b) => b.tipo === bebida.tipo && b._id !== bebida._id
-        )
-        setRelacionadas(filtradas)
+        const filtradas = data
+      .filter((b) => b.tipo === bebida.tipo && b._id !== bebida._id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+    setRelacionadas(filtradas)
       })
   }, [bebida])
 
@@ -135,7 +136,7 @@ function BebidaDetalle() {
             </h2>
             <div className="flex flex-wrap gap-4">
               {relacionadas.map((b) => (
-                <BebidaCard key={b._id} bebida={b} />
+                <BebidaCard key={b._id} bebida={b} pequeña />
               ))}
             </div>
           </div>
