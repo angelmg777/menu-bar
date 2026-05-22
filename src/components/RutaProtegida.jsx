@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom'
 
 function RutaProtegida({ children }) {
-  const esAdmin = localStorage.getItem('admin')
+  const token = localStorage.getItem('token')
 
-  if (!esAdmin) {
+  if (!token) {
     return <Navigate to="/login" />
   }
 

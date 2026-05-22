@@ -19,15 +19,18 @@ function Admin() {
   }, [])
 
   const handleLogout = () => {
-    localStorage.removeItem('admin')
-    navigate('/login')
-  }
+  localStorage.removeItem('token')
+  navigate('/login')
+}
 
   const handleEliminar = async (id) => {
   if (!confirm('¿Seguro que quieres eliminar esta bebida?')) return
 
   await fetch(`${import.meta.env.VITE_API_URL}/bebidas/${id}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
   })
 
   setBebidas(bebidas.filter((b) => b._id !== id))
@@ -49,7 +52,10 @@ const handleCrear = async () => {
 
   const res = await fetch(`${import.meta.env.VITE_API_URL}/bebidas`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    'Content-Type': 'application/json'
+    },
     body: JSON.stringify(bebidaData)
   })
 
@@ -73,7 +79,10 @@ const handleEditar = async () => {
 
   const res = await fetch(`${import.meta.env.VITE_API_URL}/bebidas/${bebidaEditando._id}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(bebidaData)
   })
 

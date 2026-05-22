@@ -5,14 +5,34 @@ function Login() {
   const [usuario, setUsuario] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [cargando, setCargando] = useState(false)
   const navigate = useNavigate()
 
-  const handleLogin = () => {
-    if (usuario === 'admin' && password === 'ruso123') {
-      localStorage.setItem('admin', 'true')
+  const handleLogin = async () => {
+    setCargando(true)
+    setError('')
+
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario, password })
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data.mensaje)
+        setCargando(false)
+        return
+      }
+
+      localStorage.setItem('token', data.token)
       navigate('/admin')
-    } else {
-      setError('Usuario o contraseña incorrectos')
+
+    } catch {
+      setError('Error al conectar con el servidor')
+      setCargando(false)
     }
   }
 
@@ -41,9 +61,10 @@ function Login() {
 
         <button
           onClick={handleLogin}
-          className="w-full bg-yellow-400 text-gray-900 font-bold py-3 rounded-2xl hover:bg-yellow-300 transition-colors"
+          disabled={cargando}
+          className="w-full bg-yellow-400 text-gray-900 font-bold py-3 rounded-2xl hover:bg-yellow-300 transition-colors disabled:opacity-50"
         >
-          Entrar
+          {cargando ? 'Entrando...' : 'Entrar'}
         </button>
       </div>
     </div>
