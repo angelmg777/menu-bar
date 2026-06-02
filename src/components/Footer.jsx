@@ -8,7 +8,7 @@ function Footer() {
           {/* Info del bar */}
           <div>
             <h2 className="text-yellow-400 text-2xl font-black tracking-widest uppercase mb-2">
-              Ruso Bar
+               Bar
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Cocktails artesanales y experiencias únicas en cada trago. 
@@ -83,10 +83,10 @@ function Footer() {
               Ubicación
             </h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-3">
-              📍 Palo Alto, Michoacán, México
+              📍 Guadalajara, Jalisco. México
             </p>
             <a
-              href="https://maps.app.goo.gl/uuBMwpf93NNQZCDm7"
+              href="https://www.google.com/maps"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-xs bg-yellow-400/10 text-yellow-400 border border-yellow-500/20 px-4 py-2 rounded-xl hover:bg-yellow-400/20 transition-colors"
@@ -100,7 +100,7 @@ function Footer() {
         {/* Línea inferior */}
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Ruso Bar. Todos los derechos reservados.
+            © {new Date().getFullYear()}  Todos los derechos reservados.
           </p>
           <p className="text-gray-700 text-xs">
             Beber con moderación 🍹

@@ -57,7 +57,7 @@ function Home() {
             Bienvenido a
           </p>
           <h1 className="text-white text-6xl font-black tracking-tight mb-2">
-            Ruso <span className="text-yellow-400">Bar</span>
+            Bebidas <span className="text-yellow-400">Bar</span>
           </h1>
           <p className="text-gray-500 text-sm tracking-widest mb-10">
             Cocktails & Experiencias

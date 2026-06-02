@@ -39,7 +39,7 @@ function Login() {
   return (
     <div className="min-h-screen bg-gray-950 flex items-center justify-center px-6">
       <div className="bg-gray-900 rounded-3xl p-8 w-full max-w-md border border-yellow-500/10">
-        <h1 className="text-yellow-400 text-2xl font-bold text-center mb-2">Ruso Bar</h1>
+        <h1 className="text-yellow-400 text-2xl font-bold text-center mb-2">Bar</h1>
         <p className="text-gray-500 text-sm text-center mb-8">Panel de administración</p>
 
         <input

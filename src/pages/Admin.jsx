@@ -106,7 +106,7 @@ const handleEditar = async () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-white text-3xl font-bold">Panel Admin</h1>
-            <p className="text-gray-500 text-sm">Ruso Bar</p>
+            <p className="text-gray-500 text-sm"> Bar</p>
           </div>
           <button
             onClick={() => setMostrarFormulario(!mostrarFormulario)}
